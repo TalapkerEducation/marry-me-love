@@ -1,0 +1,211 @@
+/* Общие настройки */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif, 'Segoe UI';
+    color: #eaeaea;
+    background: linear-gradient(-45deg, #0a0f1c, #1a1a2e);
+    background-size: 400% 400%;
+    animation: gradientBG 20s ease infinite;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.light-theme {
+    color: #fff;
+    background: linear-gradient(-45deg, #ffffff, #e0e0e0);
+    animation: none;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.site-header {
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-header h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #00f5ff;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: 2px solid #00f5ff;
+    color: #00f5ff;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #00f5ff;
+    color: #0a0f1c;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.package-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color: #00f5ff;
+    text-shadow: 0 0 10px #00f5ff;
+}
+
+.package-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.package-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 1.5rem;
+    width: 260px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    cursor: pointer;
+    position: relative;
+}
+
+.package-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px #00f5ff;
+}
+
+.package-card.selected {
+    border-color: #00f5ff;
+    box-shadow: 0 0 20px #00f5ff, 0 0 40px #00f5ff;
+    animation: pulse 2s infinite;
+}
+
+.package-card h3 {
+    margin-bottom: 0.5rem;
+    color: #00f5ff;
+    font-size: 1.2rem;
+}
+
+.package-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.package-card li::before {
+    content: "✨ ";
+}
+
+.form-section form {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+}
+
+.form-section input,
+.form-section textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+.form-section input:focus,
+.form-section textarea:focus {
+    outline: none;
+    border-color: #00f5ff;
+    box-shadow: 0 0 5px #00f5ff;
+}
+
+.form-section button {
+    background: linear-gradient(45deg, #00f5ff, #ff00d4);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-section button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 80%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.form-section button:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.error {
+    color: #ff6b6b;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.spinner {
+    color: #00f5ff;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.qrcode-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Выбор пакета услуг</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark-theme">
+    <header class="site-header">
+        <h1>🌌 Ваше идеальное событие начинается здесь</h1>
+        <button id="theme-toggle">☀️ / 🌙</button>
+    </header>
+
+    <main class="container">
+        <section class="package-section">
+            <h2>Выберите пакет</h2>
+            <div class="package-cards" id="package-cards"></div>
+        </section>
+
+        <section class="form-section hidden" id="form-section">
+            <h2>Заполните данные</h2>
+            <form id="order-form">
+                <label title="Ваше имя">Имя:
+                    <input type="text" id="name" placeholder="Ваше имя" />
+                </label>
+
+                <label title="Телефон для связи">Телефон:
+                    <input type="tel" id="phone" placeholder="+7 (7xx) xxx-xx-xx" />
+                </label>
+
+                <label title="Дополнительные пожелания к оформлению или музыке">Дополнительные пожелания:
+                    <textarea id="notes" placeholder="Например: хочу больше свечей..."></textarea>
+                </label>
+
+                <div id="spinner" class="hidden">🔄 Загрузка...</div>
+                <div id="error-message" class="error hidden"></div>
+
+                <button type="submit">Отправить запрос</button>
+                <button type="button" onclick="openWhatsAppDirect()">Написать напрямую в WhatsApp</button>
+                <button type="button" onclick="openTelegram()">Написать в Telegram</button>
+            </form>
+        </section>
+
+        <div class="qrcode-container" id="qrcode"></div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js "></script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
